@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
+    "now-build": "yum install libuuid-devel libmount-devel zlib-devel && cp /lib64/{libuuid,libmount,libblkid,libz}.so.1 node_modules/canvas/build/Release/ && yarn build",
     "build": "nuxi build",
     "start": "node .output/server/index.mjs"
   },
