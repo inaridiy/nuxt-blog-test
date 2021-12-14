@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "nuxt3": "latest",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.1"
+  },
+  "dependencies": {
+    "budoux": "^0.0.3",
+    "canvas": "^2.8.0",
+    "microcms-js-sdk": "^2.0.0",
+    "zenn-content-css": "^0.1.99",
+    "zenn-embed-elements": "^0.1.99",
+    "zenn-markdown-html": "^0.1.99"
+  }
+}
