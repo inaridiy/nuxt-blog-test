@@ -5,8 +5,8 @@ export const parser = loadDefaultJapaneseParser();
 export const mdToHTML = (markdown: string) => {
   const html = (markdownToHtml as any).default(markdown);
   const result = html
-    .replace(/<p>(.*?)<\/p>/gs, pReplacer)
-    .replace(/<h(\d) (.*?)>(.*?)<\/h\d>/gs, heddingReplacer)
+    //.replace(/<p>(.*?)<\/p>/gs, pReplacer)
+    //.replace(/<h(\d) (.*?)>(.*?)<\/h\d>/gs, heddingReplacer)
     .replace(/<img (.*?)src="(.*?)" (.*?)>/gs, imageReplacer);
   return result;
 };
