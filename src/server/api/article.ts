@@ -3,6 +3,8 @@ import { client } from "~~/src/lib/client";
 import { mdToHTML, parser } from "~~/src/lib/transpiler";
 import { ArticleRes, Article } from "~~/src/types/api";
 
+const cache = new Map<string, Article>();
+
 export default async (
   req: IncomingMessage,
   res: ServerResponse
@@ -26,6 +28,8 @@ export default async (
   }
 
   try {
+    if (cache.has(id)) return cache.get(id);
+
     const articleRes = await client.get<ArticleRes>({
       endpoint: "article",
       contentId: id,
@@ -39,7 +43,7 @@ export default async (
       parser.translateHTMLString(articleRes.title),
     ];
     const article = { ...articleRes, html, titleHtml };
-
+    cache.set(id, article);
     return article as Article;
   } catch (e) {
     res.statusCode = 404;
